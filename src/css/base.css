@@ -33,7 +33,6 @@ main {
   margin: 0 auto;
   padding-top: 36px;
   padding-bottom: 32px;
-  position: relative;
 }
 
 .form label {
@@ -59,10 +58,10 @@ input:focus {
 }
 
 button {
+  display: block;
   border: none;
   border-radius: 8px;
-  width: 91px;
-  height: 40px;
+  padding: 8px 16px;
   background-color: #4e75ff;
 
   font-family: inherit;
@@ -73,17 +72,23 @@ button {
   color: #fff;
 }
 
-.form button:hover {
+#moreImgBtn {
+  margin: 32px auto 0;
+}
+
+button:hover {
   background-color: #6c8cff;
 }
 
 .loading-text {
-  position: absolute;
-  display: block;
+  position: fixed;
+  z-index: 1;
+  /* display: block; */
   width: 256px;
-  transform: translate(-50%, 100%);
-  bottom: 0;
+  transform: translate(-50%, -50%);
+  top: 50%;
   left: 50%;
+  /* margin: 5px auto; */
   text-align: center;
 
   letter-spacing: 0.04em;
@@ -146,9 +151,6 @@ button {
 }
 
 /* #endregion */
-.hidden {
-  display: none;
-}
 
 /* #region gallery */
 
@@ -207,6 +209,10 @@ button {
 }
 
 /* #endregion gallery */
+
+.hidden {
+  display: none;
+}
 
 /* .iziToast>button.iziToast-close {
   background: url("/favicon.svg") no-repeat 50% 50%;

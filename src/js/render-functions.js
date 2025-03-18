@@ -37,7 +37,7 @@ export function renderGallary(images, galleryHTML) {
   //   captionsData: 'alt',
   //   captionDelay: 250,
   // };
-  galleryHTML.innerHTML = markup;
+  galleryHTML.insertAdjacentHTML('beforeend', markup);
 
   gallery.refresh();
 
