@@ -6,7 +6,7 @@ import { renderGallary } from './js/render-functions';
 const refs = {
   form: document.querySelector('.form'),
   gallery: document.querySelector('.gallery'),
-  loader: document.querySelector('.loading-text'),
+  loader: document.querySelector('.loader'),
   moreImgBtn: document.getElementById('moreImgBtn'),
   request: document.querySelector('.form input'),
   submitBtn: document.querySelector('.form button'),
