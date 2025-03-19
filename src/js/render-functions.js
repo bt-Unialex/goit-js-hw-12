@@ -38,7 +38,6 @@ export function renderGallary(images, galleryHTML) {
   //   captionDelay: 250,
   // };
   galleryHTML.insertAdjacentHTML('beforeend', markup);
-
   gallery.refresh();
 
   //   gallery.on('show.simplelightbox', function () {

@@ -53,13 +53,13 @@ async function handleMoreClick(event) {
   needMoreBtnCheck(images); //   Show/hide "More" button
 
   const { top: lastCardPos } = lastGalleryCard.getBoundingClientRect();
-  window.scrollBy({ top: lastCardPos - 24, behavior: 'smooth' }); //scroll to top border of the card
+  window.scrollBy({ top: lastCardPos - 24, behavior: 'smooth' }); //scroll to top border of the last card
 }
 
 function needMoreBtnCheck(images) {
   if (images.length < per_page) {
     refs.moreImgBtn.classList.add('hidden'); //hide "More" button
-    refs.moreImgBtn.removeEventListener(handleMoreClick);
+    refs.moreImgBtn.removeEventListener('click', handleMoreClick);
     iziToast.info({
       position: 'topRight',
       message: "We're sorry, but you've reached the end of search results.",
