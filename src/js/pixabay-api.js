@@ -27,14 +27,13 @@ export async function searchImage(request, page = 1, per_page = 20) {
       throw new Error('Please enter something!');
     }
     const result = await axios.get(URL);
-
     if (result.data.hits == 0) {
       throw new Error(
         'Sorry, there are no images matching your search query. Please, try again!'
       );
     }
 
-    return [...result.data.hits];
+    return { urls: [...result.data.hits], total: result.data.totalHits };
   } catch (err) {
     iziToast.error({
       iconUrl: 'img/error.svg',

@@ -38,6 +38,22 @@ export function renderGallary(images, galleryHTML) {
   //   captionDelay: 250,
   // };
   galleryHTML.insertAdjacentHTML('beforeend', markup);
+
+  // const imgLd = galleryHTML.querySelectorAll('img');
+  // console.log(' renderGallary imgLd:', imgLd);
+
+  // const imgLdP = [...imgLd].map(img => {
+  //   return new Promise((resolve, reject) => {
+  //     img.onload = () => resolve(img);
+  //     if (0) {
+  //       reject();
+  //     }
+  //   });
+  // });
+  // console.log(' renderGallary imgLdP:', imgLdP);
+
+  // Promise.all(imgLdP).then();
+
   gallery.refresh();
 
   //   gallery.on('show.simplelightbox', function () {

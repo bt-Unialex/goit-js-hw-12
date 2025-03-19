@@ -13,7 +13,9 @@ const refs = {
 };
 
 refs.form.addEventListener('submit', handleSubmitClick);
-let page, per_page, request;
+let page,
+  per_page = 20,
+  request;
 
 async function handleSubmitClick(event) {
   event.preventDefault();
@@ -22,7 +24,6 @@ async function handleSubmitClick(event) {
   refs.loader.classList.remove('hidden'); // show loader
 
   page = 1;
-  per_page = 20;
   request = refs.request.value.trim();
   const images = await searchImage(request, page, per_page);
 
@@ -36,7 +37,7 @@ async function handleSubmitClick(event) {
 
   refs.gallery.innerHTML = '';
   refs.request.value = '';
-  renderGallary(images, refs.gallery);
+  renderGallary(images.urls, refs.gallery);
   needMoreBtnCheck(images); //   Show/hide "More" button
 }
 
@@ -48,7 +49,7 @@ async function handleMoreClick(event) {
   }
 
   const lastGalleryCard = refs.gallery.lastElementChild; //remember last element before new will add
-  renderGallary(images, refs.gallery);
+  renderGallary(images.urls, refs.gallery);
   refs.loader.classList.add('hidden'); // hide loader text
   needMoreBtnCheck(images); //   Show/hide "More" button
 
@@ -57,7 +58,7 @@ async function handleMoreClick(event) {
 }
 
 function needMoreBtnCheck(images) {
-  if (images.length < per_page) {
+  if (images.urls.length < per_page || images.total === page * per_page) {
     refs.moreImgBtn.classList.add('hidden'); //hide "More" button
     refs.moreImgBtn.removeEventListener('click', handleMoreClick);
     iziToast.info({
